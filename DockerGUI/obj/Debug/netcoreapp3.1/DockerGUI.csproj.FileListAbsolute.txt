@@ -1,0 +1,17 @@
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\bin\Debug\netcoreapp3.1\DockerGUI.exe
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\bin\Debug\netcoreapp3.1\DockerGUI.dll.config
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\bin\Debug\netcoreapp3.1\DockerGUI.deps.json
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\bin\Debug\netcoreapp3.1\DockerGUI.runtimeconfig.json
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\bin\Debug\netcoreapp3.1\DockerGUI.runtimeconfig.dev.json
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\bin\Debug\netcoreapp3.1\DockerGUI.dll
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\bin\Debug\netcoreapp3.1\DockerGUI.pdb
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\netcoreapp3.1\DockerGUI.csprojAssemblyReference.cache
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\netcoreapp3.1\DockerGUI.ContainerManager.resources
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\netcoreapp3.1\DockerGUI.MainPage.resources
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\netcoreapp3.1\DockerGUI.Presets.resources
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\netcoreapp3.1\DockerGUI.Properties.Resources.resources
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\netcoreapp3.1\DockerGUI.csproj.GenerateResource.cache
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\netcoreapp3.1\DockerGUI.csproj.CoreCompileInputs.cache
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\netcoreapp3.1\DockerGUI.dll
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\netcoreapp3.1\DockerGUI.pdb
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\netcoreapp3.1\DockerGUI.genruntimeconfig.cache

@@ -1,0 +1,12 @@
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\DockerGUI.Properties.Resources.resources
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\DockerGUI.csproj.GenerateResource.cache
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\DockerGUI.csproj.CoreCompileInputs.cache
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\bin\Debug\DockerGUI.exe.config
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\bin\Debug\DockerGUI.exe
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\bin\Debug\DockerGUI.pdb
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\DockerGUI.csprojAssemblyReference.cache
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\DockerGUI.ContainerManager.resources
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\DockerGUI.MainPage.resources
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\DockerGUI.Presets.resources
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\DockerGUI.exe
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\DockerGUI.pdb

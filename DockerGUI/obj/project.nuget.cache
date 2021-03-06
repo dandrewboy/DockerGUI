@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "VUbHlmhiUwNaFdCjDtCUKYR9/MZeY9A9IVtRbP/84MyVl/OU6kMasy1hlynEnywdpycHAR8jA++yyFa8H6pBJQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\dandr\\source\\repos\\DockerGUI\\DockerGUI\\DockerGUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dandr\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\dandr\\.nuget\\packages\\system.data.datasetextensions\\4.5.0\\system.data.datasetextensions.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

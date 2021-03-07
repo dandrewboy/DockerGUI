@@ -7,6 +7,14 @@
   "targets": {
     ".NETCoreApp,Version=v3.1": {
       "Microsoft.CSharp/4.7.0": {},
+      "PowerShellStandard.Library/5.1.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Management.Automation.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "5.1.0.0"
+          }
+        }
+      },
       "System.Data.DataSetExtensions/4.5.0": {
         "runtime": {
           "lib/netstandard2.0/System.Data.DataSetExtensions.dll": {
@@ -24,6 +32,13 @@
       "sha512": "sha512-pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
       "path": "microsoft.csharp/4.7.0",
       "hashPath": "microsoft.csharp.4.7.0.nupkg.sha512"
+    },
+    "PowerShellStandard.Library/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iYaRvQsM1fow9h3uEmio+2m2VXfulgI16AYHaTZ8Sf7erGe27Qc8w/h6QL5UPuwv1aXR40QfzMEwcCeiYJp2cw==",
+      "path": "powershellstandard.library/5.1.0",
+      "hashPath": "powershellstandard.library.5.1.0.nupkg.sha512"
     },
     "System.Data.DataSetExtensions/4.5.0": {
       "type": "package",

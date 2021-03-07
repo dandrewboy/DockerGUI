@@ -15,3 +15,5 @@ C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\netcoreapp3.1\DockerGU
 C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\netcoreapp3.1\DockerGUI.dll
 C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\netcoreapp3.1\DockerGUI.pdb
 C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\netcoreapp3.1\DockerGUI.genruntimeconfig.cache
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\bin\Debug\netcoreapp3.1\System.Management.Automation.dll
+C:\Users\dandr\source\repos\DockerGUI\DockerGUI\obj\Debug\netcoreapp3.1\DockerGUI.csproj.CopyComplete

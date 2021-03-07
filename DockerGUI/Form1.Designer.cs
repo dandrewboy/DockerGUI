@@ -51,9 +51,10 @@
             this.IDE,
             this.Project,
             this.Status});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 43);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 50);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(544, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(635, 173);
             this.dataGridView1.TabIndex = 0;
             // 
             // txtName
@@ -88,9 +89,10 @@
             // 
             // b_OpenFile
             // 
-            this.b_OpenFile.Location = new System.Drawing.Point(13, 12);
+            this.b_OpenFile.Location = new System.Drawing.Point(15, 14);
+            this.b_OpenFile.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.b_OpenFile.Name = "b_OpenFile";
-            this.b_OpenFile.Size = new System.Drawing.Size(75, 23);
+            this.b_OpenFile.Size = new System.Drawing.Size(88, 27);
             this.b_OpenFile.TabIndex = 1;
             this.b_OpenFile.Text = "Open File";
             this.b_OpenFile.UseVisualStyleBackColor = true;
@@ -98,27 +100,30 @@
             // 
             // b_OpenContainer
             // 
-            this.b_OpenContainer.Location = new System.Drawing.Point(94, 12);
+            this.b_OpenContainer.Location = new System.Drawing.Point(110, 14);
+            this.b_OpenContainer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.b_OpenContainer.Name = "b_OpenContainer";
-            this.b_OpenContainer.Size = new System.Drawing.Size(104, 23);
+            this.b_OpenContainer.Size = new System.Drawing.Size(121, 27);
             this.b_OpenContainer.TabIndex = 2;
             this.b_OpenContainer.Text = "Open Container";
             this.b_OpenContainer.UseVisualStyleBackColor = true;
             // 
             // b_Delete
             // 
-            this.b_Delete.Location = new System.Drawing.Point(204, 12);
+            this.b_Delete.Location = new System.Drawing.Point(238, 14);
+            this.b_Delete.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.b_Delete.Name = "b_Delete";
-            this.b_Delete.Size = new System.Drawing.Size(97, 23);
+            this.b_Delete.Size = new System.Drawing.Size(113, 27);
             this.b_Delete.TabIndex = 3;
             this.b_Delete.Text = "Delete Image";
             this.b_Delete.UseVisualStyleBackColor = true;
             // 
             // b_Presets
             // 
-            this.b_Presets.Location = new System.Drawing.Point(367, 12);
+            this.b_Presets.Location = new System.Drawing.Point(428, 14);
+            this.b_Presets.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.b_Presets.Name = "b_Presets";
-            this.b_Presets.Size = new System.Drawing.Size(75, 23);
+            this.b_Presets.Size = new System.Drawing.Size(88, 27);
             this.b_Presets.TabIndex = 4;
             this.b_Presets.Text = "Presets";
             this.b_Presets.UseVisualStyleBackColor = true;
@@ -126,9 +131,10 @@
             // 
             // b_ContainerManager
             // 
-            this.b_ContainerManager.Location = new System.Drawing.Point(448, 12);
+            this.b_ContainerManager.Location = new System.Drawing.Point(523, 14);
+            this.b_ContainerManager.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.b_ContainerManager.Name = "b_ContainerManager";
-            this.b_ContainerManager.Size = new System.Drawing.Size(108, 23);
+            this.b_ContainerManager.Size = new System.Drawing.Size(126, 27);
             this.b_ContainerManager.TabIndex = 5;
             this.b_ContainerManager.Text = "Container Manager";
             this.b_ContainerManager.UseVisualStyleBackColor = true;
@@ -136,17 +142,19 @@
             // 
             // MainPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(933, 519);
             this.Controls.Add(this.b_ContainerManager);
             this.Controls.Add(this.b_Presets);
             this.Controls.Add(this.b_Delete);
             this.Controls.Add(this.b_OpenContainer);
             this.Controls.Add(this.b_OpenFile);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "MainPage";
             this.Text = "Docker GUI: Main Page";
+            this.Load += new System.EventHandler(this.MainPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

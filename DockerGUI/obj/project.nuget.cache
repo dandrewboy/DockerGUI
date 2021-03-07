@@ -1,23 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "pZB3KZeDyIM2scXJTeATkjlpG8zwwY8pUQUPq2pDfGz+lmPINGc5lfuaV0YNgc6bxVg0DaQsASyZl1lClvXRPg==",
+  "dgSpecHash": "OsmWrlbPsKxBANsq82zZ3jcXQe2/lkFlW3JdRc9tTu6tUi6g2JnqmrhqXKzjlKqpdfBUECG8ONMS3RbtD4rtqQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\dandr\\source\\repos\\DockerGUI\\DockerGUI\\DockerGUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dandr\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
-    "C:\\Users\\dandr\\.nuget\\packages\\microsoft.powershell.5.referenceassemblies\\1.1.0\\microsoft.powershell.5.referenceassemblies.1.1.0.nupkg.sha512",
+    "C:\\Users\\dandr\\.nuget\\packages\\powershellstandard.library\\5.1.0\\powershellstandard.library.5.1.0.nupkg.sha512",
     "C:\\Users\\dandr\\.nuget\\packages\\system.data.datasetextensions\\4.5.0\\system.data.datasetextensions.4.5.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.PowerShell.5.ReferenceAssemblies 1.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.PowerShell.5.ReferenceAssemblies",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  "logs": []
 }

@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -62,47 +63,11 @@ namespace DockerGUI
                 {
                     Console.WriteLine("File has been recived");
                     fileName = Path.GetFileName(fbd.SelectedPath);
-                  
+
                     // Build Docker file from newly created image file
-                    var processInfo = new ProcessStartInfo("docker", $"run -it --rm -p 8081:8080 -e PASSWORD=test -v " + fileName + $" --name vscode codercom/code-server" );
-
-                    processInfo.CreateNoWindow = true;
-                    processInfo.UseShellExecute = false;
-                    processInfo.RedirectStandardOutput = true;
-                    processInfo.RedirectStandardError = true;
-
-                    int exitCode;
-                    using (var process = new Process())
-                    {
-                        //DataReceivedEventHandler dreh = new DataReceivedEventHandler();
-
-                        //process.StartInfo = processInfo;
-                        //process.OutputDataReceived += dreh;
-                        //process.ErrorDataReceived += dreh;
-
-                        process.Start();
-                        process.BeginOutputReadLine();
-                        process.BeginErrorReadLine();
-                        process.WaitForExit(1200000);
-                        if (!process.HasExited)
-                        {
-                            process.Kill();
-                            string UBEmessage = "An Unexpected error occured during the build preocess.";
-                            string UBEcaption = "Unexpectd Build Error";
-                            MessageBoxButtons UBEbutton = MessageBoxButtons.OK;
-                            MessageBox.Show(UBEmessage, UBEcaption, UBEbutton);
-                            MessageBox.Show(UBEmessage, UBEcaption, UBEbutton);
-                        }
-                        string BSmessage = "An Unexpected error occured during the build preocess.";
-                        string BScaption = "Unexpectd Build Error";
-                        MessageBoxButtons BSbutton = MessageBoxButtons.OK;
-                        MessageBox.Show(BSmessage, BScaption, BSbutton);
-                        MessageBox.Show(BSmessage, BScaption, BSbutton);
-
-                        exitCode = process.ExitCode;
-                        process.Close();
-                    }
-
+                    PowerShell ps = PowerShell.Create();
+                    ps.AddCommand("docker run -it --rm -p 8081:8080 -e PASSWORD=test -v " + fbd.SelectedPath + " --name vscode codercom/code-server" );
+                    ps.Invoke();
                 }
             }
         }

@@ -62,9 +62,9 @@ namespace DockerGUI
                 {
                     Console.WriteLine("File has been recived");
                     fileName = Path.GetFileName(fbd.SelectedPath);
-                   
+                  
                     // Build Docker file from newly created image file
-                    var processInfo = new ProcessStartInfo("docker", $" run -it --rm -p 8081:8080 -e PASSWORD=test -v  " + fileName + $" --name vscode codercom/code-server");
+                    var processInfo = new ProcessStartInfo("docker", $"run -it --rm -p 8081:8080 -e PASSWORD=test -v " + fileName + $" --name vscode codercom/code-server" );
 
                     processInfo.CreateNoWindow = true;
                     processInfo.UseShellExecute = false;
@@ -105,6 +105,10 @@ namespace DockerGUI
 
                 }
             }
+        }
+        private void MainPage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

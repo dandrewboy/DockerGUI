@@ -38,7 +38,6 @@ namespace DockerGUI
             String root = @"C:\DockerGUI";
             String subdir = @"C:\DockerGUI\Dockerfiles";
             String fileName = "";
-            string filePath = "";
             // If the root directory doesn't exsist the root directory is created
             if (!Directory.Exists(root))
             {
@@ -59,41 +58,13 @@ namespace DockerGUI
                 {
                     Console.WriteLine("File has been recived");
                     fileName = Path.GetFileName(fbd.SelectedPath);
-                    filePath = subdir + "\\" + fileName + "_df.ps1";
-                    if (!Directory.Exists(filePath)) 
-                    {
-                        FileStream fs = File.Create(filePath);
-                        fs.Close();
-                    }
-
-                    // Construct an empty InitialSessionState
-                    //InitialSessionState iss = InitialSessionState.Create($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe");
-                    // Add Docker run command to the session
-                    //SessionStateScriptEntry script = new SessionStateScriptEntry("docker run -it --rm -p 8081:8080 -e PASSWORD=test -v " + fbd.SelectedPath + " --name vscode codercom/code-server");
-                    //iss.Commands.Add(script);
-
-                    // Open Runspace
-                    //using (Runspace runSpace = RunspaceFactory.CreateRunspace(iss))
-                    //{
-                    //    runSpace.Open();
-                    //    using (PowerShell ps = PowerShell.Create())
-                    //    {
-                    //        ps.Runspace = runSpace;
-                    //        ps.AddScript("docker run -it --rm -p 8081:8080 -e PASSWORD=test -v " + fbd.SelectedPath + " --name vscode codercom/code-server");
-                    //        ps.Invoke();
-                    //    }
-                    //}
-
                 }
-                using (StreamWriter file = new StreamWriter(filePath))
-                {
-                    file.Write("docker run -it --rm -p 8081:8080 -e PASSWORD=test -v " + fbd.SelectedPath + " --name vscode codercom/code-server");
-                    file.Close();
-                }
-
+                // Create an empty process 
                 Process process;
+                // Set the process to be a single instance of Powershell with a Docker command
                 ProcessStartInfo processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"docker run -it --rm -p 8081:8080 -e PASSWORD=test -v " + fbd.SelectedPath + " --name vscode codercom/code-server");
 
+                // Parameters for the process instance, CreateNoWindow is commented out for testing purposes
                 //processInfo.CreateNoWindow = true;
                 processInfo.UseShellExecute = false;
                 process = Process.Start(processInfo);

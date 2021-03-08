@@ -92,7 +92,7 @@ namespace DockerGUI
                 }
 
                 Process process;
-                ProcessStartInfo processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"" + filePath);
+                ProcessStartInfo processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"docker run -it --rm -p 8081:8080 -e PASSWORD=test -v " + fbd.SelectedPath + " --name vscode codercom/code-server");
 
                 //processInfo.CreateNoWindow = true;
                 processInfo.UseShellExecute = false;

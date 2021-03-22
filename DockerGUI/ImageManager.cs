@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DockerGUI
 {
-    public partial class ContainerManager : Form
+    public partial class ImageManager : Form
     {
-        public ContainerManager()
+        public ImageManager()
         {
             InitializeComponent();
         }

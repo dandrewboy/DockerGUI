@@ -1,7 +1,10 @@
-﻿using System;
+﻿using DockerGUI.Service;
+using System;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Management.Automation;
 using System.Windows.Forms;
 
 namespace DockerGUI
@@ -16,7 +19,7 @@ namespace DockerGUI
         // Click event for the Container Manager navigation button
         private void b_ContainerManager_Click(object sender, EventArgs e)
         {
-            ContainerManager cManager = new ContainerManager();
+            ImageManager cManager = new ImageManager();
             cManager.Show();
             Hide();
         }
@@ -36,6 +39,7 @@ namespace DockerGUI
             String root = @"C:\DockerGUI";
             String subdir = @"C:\DockerGUI\Dockerfiles";
             String fileName = "";
+            PowerShellService pss = new PowerShellService();
             bool isPhp = false;
             bool isJava = false;
             bool isCsharp = false;
@@ -63,7 +67,6 @@ namespace DockerGUI
                     {
                         // Reads the contents of the files in the directory that are php files and looks for any files with ".blade" in its contents. This will be used to identify if a project is using the Laravel
                         // framework so the propper dependancies can be added. 
-                        bool hasLaravel = false;
                         var files = from file in Directory.EnumerateFiles(fbd.SelectedPath, "*.php", SearchOption.AllDirectories)
                                     from line in File.ReadLines(file)
                                     where file.Contains(".php")
@@ -75,18 +78,6 @@ namespace DockerGUI
                         foreach (var f in files)
                         {
                             isPhp = true;
-                        }
-                        files = from file in Directory.EnumerateFiles(fbd.SelectedPath, "*.php", SearchOption.AllDirectories)
-                                from line in File.ReadLines(file)
-                                where line.Contains(".blade")
-                                select new
-                                {
-                                    File = file,
-                                    Line = line
-                                };
-                        foreach (var f in files)
-                        {
-                            hasLaravel = true;
                         }
                         if (isPhp == true)
                         {
@@ -102,6 +93,8 @@ namespace DockerGUI
 
                             //the line below locks the original form window until the powershell window is closed
                             process.WaitForExit();
+                            pss.addImageAsync();
+                            pss.addContainerAsync();
                             process.Close();
                         }
                         else
@@ -116,12 +109,22 @@ namespace DockerGUI
                     
                     catch (UnauthorizedAccessException uAEx)
                         {
-                    Console.WriteLine(uAEx.Message);
-                        }
+                        Console.WriteLine(uAEx.Message); 
+                        string UAXmessage = "Current user does not have access to the specified file.";
+                        string UAXcaption = "Unauthorized Access";
+                        MessageBoxButtons UAXbutton = MessageBoxButtons.OK;
+                        MessageBox.Show(UAXmessage, UAXcaption, UAXbutton);
+                        MessageBox.Show(UAXmessage, UAXcaption, UAXbutton);
+                    }
                     catch (PathTooLongException pathEx)
                         {
-                    Console.WriteLine(pathEx.Message);
-                        }
+                        Console.WriteLine(pathEx.Message);
+                        string PTLmessage = "Specified file path is too long.";
+                        string PTLcaption = "Unauthorized Access";
+                        MessageBoxButtons PTLbutton = MessageBoxButtons.OK;
+                        MessageBox.Show(PTLmessage, PTLcaption, PTLbutton);
+                        MessageBox.Show(PTLmessage, PTLcaption, PTLbutton);
+                    }
                 }
             }
         }

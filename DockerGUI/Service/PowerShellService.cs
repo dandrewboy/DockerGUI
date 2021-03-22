@@ -22,7 +22,7 @@ namespace DockerGUI.Service
                   .AddParameter("Force");
 
                 // Add script to retrive a list of Images from Power Shell
-                ps.AddScript(@"C:\Users\HP\Desktop\HotelMode-PB\HotelMode.ps1");
+                ps.AddCommand(@"docker image ls");
 
                 Collection<PSObject> result = ps.Invoke();
                 // outputObject contains the result of the powershell script
@@ -49,7 +49,7 @@ namespace DockerGUI.Service
                   .AddParameter("Force");
 
                 // Add script to retrive a list of Containers from Power Shell
-                ps.AddScript(@"C:\Users\HP\Desktop\HotelMode-PB\HotelMode.ps1");
+                ps.AddCommand(@"docker container ls");
 
                 Collection<PSObject> result = ps.Invoke();
                 // outputObject contains the result of the powershell script

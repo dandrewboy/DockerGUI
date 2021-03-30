@@ -29,7 +29,7 @@ namespace DockerGUI.Service
                 foreach (var outputObject in result)
                 {
                     // Testing for a successful retrival of the image list
-                    using StreamWriter file = new StreamWriter("ImageListTest.txt");
+                    using StreamWriter file = new StreamWriter("C:\\Test\\ImageListTest.txt");
                     string container = outputObject.ToString();
                     await file.WriteLineAsync(container);
                 }
@@ -56,7 +56,7 @@ namespace DockerGUI.Service
                 foreach (var outputObject in result)
                 {
                     // Testing for successful retrival of the container list
-                    using StreamWriter file = new StreamWriter("ContainerListTest.txt");
+                    using StreamWriter file = new StreamWriter("C:\\Test\\ContainerListTest.txt");
                     string container = outputObject.ToString();
                     await file.WriteLineAsync(container);
                 }
@@ -69,7 +69,7 @@ namespace DockerGUI.Service
             // Create an empty process 
             Process process;
             // Set the process to be a single instance of Powershell with a docker remove command for an image
-            ProcessStartInfo processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"");
+            ProcessStartInfo processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"docker image rmi " + imgName +":latest");
 
             // Parameters for the process instance, CreateNoWindow is commented out for testing purposes
             //processInfo.CreateNoWindow = true;
@@ -85,10 +85,14 @@ namespace DockerGUI.Service
             // Create an empty process 
             Process process;
             // Set the process to be a single instance of Powershell with a docker remove command for a container
-            ProcessStartInfo processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"");
+            ProcessStartInfo processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"docker stop " + conName);
 
             // Parameters for the process instance, CreateNoWindow is commented out for testing purposes
             //processInfo.CreateNoWindow = true;
+            processInfo.UseShellExecute = false;
+            process = Process.Start(processInfo);
+
+            processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"docker rm -v " + conName);
             processInfo.UseShellExecute = false;
             process = Process.Start(processInfo);
 

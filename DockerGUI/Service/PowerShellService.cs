@@ -29,7 +29,7 @@ namespace DockerGUI.Service
                     // Testing for successful retrival of the container list
                     using StreamWriter file = new StreamWriter("C:\\Test\\ImageListTest.txt");
                     string container = outputObject.ToString();
-                    await file.WriteLineAsync(container);
+                    file.WriteLineAsync(container);
                     result.Add(container);
                 }
             //the line below locks the original form window until the powershell window is closed
@@ -57,7 +57,7 @@ namespace DockerGUI.Service
                     // Testing for successful retrival of the container list
                     using StreamWriter file = new StreamWriter("C:\\Test\\ContainerListTest.txt");
                     string container = outputObject.ToString();
-                    await file.WriteLineAsync(container);
+                    file.WriteLineAsync(container);
                     result.Add(container);
                 }
             //the line below locks the original form window until the powershell window is closed

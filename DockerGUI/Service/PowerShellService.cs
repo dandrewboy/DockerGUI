@@ -10,8 +10,9 @@ namespace DockerGUI.Service
 {
     class PowerShellService
     {
-        public async System.Threading.Tasks.Task<Collection<PSObject>> addImageAsync()
+        public List<string> addImageAsync()
         {
+             List<string> result = new List<string>();
             // Create an empty process 
             Process process;
             // Set the process to be a single instance of Powershell with a docker remove command for an image
@@ -22,7 +23,6 @@ namespace DockerGUI.Service
             processInfo.UseShellExecute = false;
             process = Process.Start(processInfo);
 
-              Collection<PSObject> result = process;
                 // outputObject contains the result of the powershell script
                 foreach (var outputObject in result)
                 {
@@ -30,6 +30,7 @@ namespace DockerGUI.Service
                     using StreamWriter file = new StreamWriter("C:\\Test\\ImageListTest.txt");
                     string container = outputObject.ToString();
                     await file.WriteLineAsync(container);
+                    result.Add(container);
                 }
             //the line below locks the original form window until the powershell window is closed
             process.WaitForExit();
@@ -37,8 +38,9 @@ namespace DockerGUI.Service
             return result;
         }
 
-        public async System.Threading.Tasks.Task<Collection<PSObject>> addContainerAsync()
+        public List<string> addContainerAsync()
         {
+            List<string> result = new List<string>();
              // Create an empty process 
             Process process;
             // Set the process to be a single instance of Powershell with a docker remove command for an image
@@ -49,7 +51,6 @@ namespace DockerGUI.Service
             processInfo.UseShellExecute = false;
             process = Process.Start(processInfo);
 
-              Collection<PSObject> result = process;
                 // outputObject contains the result of the powershell script
                 foreach (var outputObject in result)
                 {
@@ -57,6 +58,7 @@ namespace DockerGUI.Service
                     using StreamWriter file = new StreamWriter("C:\\Test\\ContainerListTest.txt");
                     string container = outputObject.ToString();
                     await file.WriteLineAsync(container);
+                    result.Add(container);
                 }
             //the line below locks the original form window until the powershell window is closed
             process.WaitForExit();

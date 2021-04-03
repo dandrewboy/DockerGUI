@@ -93,9 +93,9 @@ namespace DockerGUI
 
                             //the line below locks the original form window until the powershell window is closed
                             process.WaitForExit();
+                            process.Close();
                             pss.addImageAsync();
                             pss.addContainerAsync();
-                            process.Close();
                         }
                         else
                         {

@@ -32,6 +32,7 @@ namespace DockerGUI.Service
                     await file.WriteLineAsync(container);
                 }
             //the line below locks the original form window until the powershell window is closed
+            process.WaitForExit();
             process.Close();
             return result;
         }
@@ -58,6 +59,7 @@ namespace DockerGUI.Service
                     await file.WriteLineAsync(container);
                 }
             //the line below locks the original form window until the powershell window is closed
+            process.WaitForExit();
             process.Close();
             return result;
             

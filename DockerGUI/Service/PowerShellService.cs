@@ -23,16 +23,15 @@ namespace DockerGUI.Service
             processInfo.UseShellExecute = false;
             process = Process.Start(processInfo);
 
-             // outputObject contains the result of the powershell script
-             foreach (var outputObject in process)
-                {
-                    // Testing for successful retrival of the container list
-                    using StreamWriter file = new StreamWriter("C:\\Test\\ImageListTest.txt");
-                    string container = outputObject.ToString();
-                    file.WriteLineAsync(container);
-                    result.Add(container);
-                }
-
+            while (!process.StandardOutput.EndOfStream)
+            {
+                // Testing for successful retrival of the container list
+                using StreamWriter file = new StreamWriter("C:\\Test\\ContainerListTest.txt");
+	            var line = process.StandardOutput.ReadLine();
+	            file.WriteLine(line);
+                result.Add(line);
+            }
+            
             //the line below locks the original form window until the powershell window is closed
             process.WaitForExit();
             process.Close();
@@ -53,14 +52,14 @@ namespace DockerGUI.Service
             processInfo.UseShellExecute = false;
             process = Process.Start(processInfo);
 
-             foreach (var outputObject in process)
-                {
-                    // Testing for successful retrival of the container list
-                    using StreamWriter file = new StreamWriter("C:\\Test\\ContainerListTest.txt");
-                    string container = outputObject.ToString();
-                    file.WriteLineAsync(container);
-                    result.Add(container);
-                }
+             while (!process.StandardOutput.EndOfStream)
+             {
+                // Testing for successful retrival of the container list
+                using StreamWriter file = new StreamWriter("C:\\Test\\ContainerListTest.txt");
+                var line = process.StandardOutput.ReadLine();
+	            file.WriteLine(line);
+                result.Add(line);
+             }
 
             //the line below locks the original form window until the powershell window is closed
             process.WaitForExit();

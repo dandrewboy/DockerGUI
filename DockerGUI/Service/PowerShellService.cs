@@ -22,6 +22,9 @@ namespace DockerGUI.Service
             //processInfo.CreateNoWindow = true;
             processInfo.UseShellExecute = false;
             process = Process.Start(processInfo);
+ 
+            //the line below locks the original form window until the powershell window is closed
+            process.WaitForExit();
 
             while (!process.StandardOutput.EndOfStream)
             {
@@ -33,9 +36,7 @@ namespace DockerGUI.Service
                 }
                 result.Add(line);
             }
-            
-            //the line below locks the original form window until the powershell window is closed
-            process.WaitForExit();
+
             process.Close();
                
             return result;
@@ -54,6 +55,8 @@ namespace DockerGUI.Service
             processInfo.UseShellExecute = false;
             process = Process.Start(processInfo);
 
+            //the line below locks the original form window until the powershell window is closed
+            process.WaitForExit();
             while (!process.StandardOutput.EndOfStream)
             {
                 // Testing for successful retrival of the container list
@@ -64,9 +67,6 @@ namespace DockerGUI.Service
                 }
                 result.Add(line);
             }
-
-            //the line below locks the original form window until the powershell window is closed
-            process.WaitForExit();
             process.Close();
 
             // outputObject contains the result of the powershell script

@@ -11,6 +11,11 @@ namespace DockerGUI
 {
     public partial class MainPage : Form
     {
+        PowerShellService pss = new PowerShellService();
+        string imgName = "";
+        string imgPort = "";
+        string imgPassword = "";
+        string ide = "";
         public MainPage()
         {
             InitializeComponent();
@@ -19,8 +24,8 @@ namespace DockerGUI
         // Click event for the Container Manager navigation button
         private void b_ContainerManager_Click(object sender, EventArgs e)
         {
-            ImageManager cManager = new ImageManager();
-            cManager.Show();
+            ImageManager iManager = new ImageManager(imgName, imgPort, imgPassword, ide);
+            iManager.Show();
             Hide();
         }
 
@@ -39,9 +44,7 @@ namespace DockerGUI
             String root = @"C:\DockerGUI";
             String subdir = @"C:\DockerGUI\Dockerfiles";
             String fileName = "";
-            string IDE = "vscode";
             string projectLanguage = "";
-            PowerShellService pss = new PowerShellService();
             bool isPhp = false;
             bool isJava = false;
             bool isCsharp = false;
@@ -81,6 +84,35 @@ namespace DockerGUI
                         {
                             isPhp = true;
                         }
+
+                        // Reads contents of the files in the directory that are java files.
+                        files = from file in Directory.EnumerateFiles(fbd.SelectedPath, "*.java", SearchOption.AllDirectories)
+                                    from line in File.ReadLines(file)
+                                    where file.Contains(".java")
+                                    select new
+                                    {
+                                        File = file,
+                                        Line = line
+                                    };
+                        foreach (var f in files)
+                        {
+                            isJava = true;
+                        }
+
+                        // Reads contents of the files in the directory that are .cs files.
+                        files = from file in Directory.EnumerateFiles(fbd.SelectedPath, "*.cs", SearchOption.AllDirectories)
+                                from line in File.ReadLines(file)
+                                where file.Contains(".cs")
+                                select new
+                                {
+                                    File = file,
+                                    Line = line
+                                };
+                        foreach (var f in files)
+                        {
+                            isCsharp = true;
+                        }
+
                         if (isPhp == true)
                         {
                             projectLanguage = "PhP";
@@ -88,6 +120,12 @@ namespace DockerGUI
                             Process process;
                             // Set the process to be a single instance of Powershell with a Docker command
                             ProcessStartInfo processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"docker run -it --rm -p 8081:8080 -e PASSWORD=test -v " + fbd.SelectedPath + " --name vscode_"+ fileName +" codercom/code-server");
+
+                            // set image global variables
+                            imgName = "codercom/code-server";
+                            imgPort = "8081:8080";
+                            imgPassword = "test";
+                            ide = "vscode";
 
                             // Parameters for the process instance, CreateNoWindow is commented out for testing purposes
                             //processInfo.CreateNoWindow = true;
@@ -97,7 +135,55 @@ namespace DockerGUI
                             //the line below locks the original form window until the powershell window is closed
                             process.WaitForExit();
                             process.Close();
-                            dataGridView1.Rows.Add(IDE + "_" + fileName, IDE, fileName, projectLanguage);
+                            dataGridView1.Rows.Add(ide + "_" + fileName, ide, fileName, projectLanguage);
+                        } 
+                        else if(isJava == true)
+                        {
+                            projectLanguage = "Java";
+                            // Create an empty process 
+                            Process process;
+                            // Set the process to be a single instance of Powershell with a Docker command
+                            ProcessStartInfo processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"docker run -it --rm -p 8081:8080 -e PASSWORD=test -v " + fbd.SelectedPath + " --name vscode_" + fileName + " codercom/code-server");
+
+                            // set image global variables
+                            imgName = "codercom/code-server";
+                            imgPort = "8081:8080";
+                            imgPassword = "test";
+                            ide = "vscode";
+
+                            // Parameters for the process instance, CreateNoWindow is commented out for testing purposes
+                            //processInfo.CreateNoWindow = true;
+                            processInfo.UseShellExecute = false;
+                            process = Process.Start(processInfo);
+
+                            //the line below locks the original form window until the powershell window is closed
+                            process.WaitForExit();
+                            process.Close();
+                            dataGridView1.Rows.Add(ide + "_" + fileName, ide, fileName, projectLanguage);
+                        }
+                        else if(isCsharp == true)
+                        {
+                            projectLanguage = "C#";
+                            // Create an empty process 
+                            Process process;
+                            // Set the process to be a single instance of Powershell with a Docker command
+                            ProcessStartInfo processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"docker run -it --rm -p 8081:8080 -e PASSWORD=test -v " + fbd.SelectedPath + " --name vscode_" + fileName + " codercom/code-server");
+
+                            // set image global variables
+                            imgName = "codercom/code-server";
+                            imgPort = "8081:8080";
+                            imgPassword = "test";
+                            ide = "vscode";
+
+                            // Parameters for the process instance, CreateNoWindow is commented out for testing purposes
+                            //processInfo.CreateNoWindow = true;
+                            processInfo.UseShellExecute = false;
+                            process = Process.Start(processInfo);
+
+                            //the line below locks the original form window until the powershell window is closed
+                            process.WaitForExit();
+                            process.Close();
+                            dataGridView1.Rows.Add(ide + "_" + fileName, ide, fileName, projectLanguage);
                         }
                         else
                         {
@@ -133,6 +219,15 @@ namespace DockerGUI
         private void MainPage_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void b_Delete_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridView1.SelectedRows.Count > 0)
+            {
+                dataGridView1.Rows.RemoveAt(this.dataGridView1.SelectedRows[0].Index);
+                pss.removeContainer((string)dataGridView1.SelectedRows[0].Cells[0].Value);
+            }
         }
     }
 }

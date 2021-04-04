@@ -103,10 +103,6 @@ namespace DockerGUI.Service
             processInfo.UseShellExecute = false;
             process = Process.Start(processInfo);
 
-            processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"docker rm -v " + conName);
-            processInfo.UseShellExecute = false;
-            process = Process.Start(processInfo);
-
             //the line below locks the original form window until the powershell window is closed
             process.Close();
 

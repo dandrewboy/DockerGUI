@@ -96,6 +96,7 @@
             this.b_Delete.TabIndex = 3;
             this.b_Delete.Text = "Delete Container";
             this.b_Delete.UseVisualStyleBackColor = true;
+            this.b_Delete.Click += new System.EventHandler(this.b_Delete_Click);
             // 
             // b_Presets
             // 

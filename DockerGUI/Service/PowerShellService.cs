@@ -23,8 +23,8 @@ namespace DockerGUI.Service
             processInfo.UseShellExecute = false;
             process = Process.Start(processInfo);
 
-                // outputObject contains the result of the powershell script
-                foreach (var outputObject in result)
+             // outputObject contains the result of the powershell script
+             foreach (var outputObject in process)
                 {
                     // Testing for successful retrival of the container list
                     using StreamWriter file = new StreamWriter("C:\\Test\\ImageListTest.txt");
@@ -32,9 +32,11 @@ namespace DockerGUI.Service
                     file.WriteLineAsync(container);
                     result.Add(container);
                 }
+
             //the line below locks the original form window until the powershell window is closed
             process.WaitForExit();
             process.Close();
+               
             return result;
         }
 
@@ -51,8 +53,7 @@ namespace DockerGUI.Service
             processInfo.UseShellExecute = false;
             process = Process.Start(processInfo);
 
-                // outputObject contains the result of the powershell script
-                foreach (var outputObject in result)
+             foreach (var outputObject in process)
                 {
                     // Testing for successful retrival of the container list
                     using StreamWriter file = new StreamWriter("C:\\Test\\ContainerListTest.txt");
@@ -60,9 +61,13 @@ namespace DockerGUI.Service
                     file.WriteLineAsync(container);
                     result.Add(container);
                 }
+
             //the line below locks the original form window until the powershell window is closed
             process.WaitForExit();
             process.Close();
+
+            // outputObject contains the result of the powershell script
+               
             return result;
             
         }

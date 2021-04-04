@@ -39,6 +39,8 @@ namespace DockerGUI
             String root = @"C:\DockerGUI";
             String subdir = @"C:\DockerGUI\Dockerfiles";
             String fileName = "";
+            string IDE = "vscode";
+            string projectLanguage = "";
             PowerShellService pss = new PowerShellService();
             bool isPhp = false;
             bool isJava = false;
@@ -81,10 +83,11 @@ namespace DockerGUI
                         }
                         if (isPhp == true)
                         {
+                            projectLanguage = "PhP";
                             // Create an empty process 
                             Process process;
                             // Set the process to be a single instance of Powershell with a Docker command
-                            ProcessStartInfo processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"docker run -it --rm -p 8081:8080 -e PASSWORD=test -v " + fbd.SelectedPath + " --name vscode codercom/code-server");
+                            ProcessStartInfo processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"docker run -it --rm -p 8081:8080 -e PASSWORD=test -v " + fbd.SelectedPath + " --name vscode_"+ fileName +" codercom/code-server");
 
                             // Parameters for the process instance, CreateNoWindow is commented out for testing purposes
                             //processInfo.CreateNoWindow = true;
@@ -94,8 +97,7 @@ namespace DockerGUI
                             //the line below locks the original form window until the powershell window is closed
                             process.WaitForExit();
                             process.Close();
-                            pss.addImageAsync();
-                            pss.addContainerAsync();
+                            dataGridView1.Rows.Add(IDE + "_" + fileName, IDE, fileName, projectLanguage);
                         }
                         else
                         {

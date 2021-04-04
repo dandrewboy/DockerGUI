@@ -26,9 +26,11 @@ namespace DockerGUI.Service
             while (!process.StandardOutput.EndOfStream)
             {
                 // Testing for successful retrival of the container list
-                using StreamWriter file = new StreamWriter("C:\\Test\\ContainerListTest.txt");
-	            var line = process.StandardOutput.ReadLine();
-	            file.WriteLine(line);
+                var line = process.StandardOutput.ReadLine();
+                using (StreamWriter file = new StreamWriter($@"C:\Test\ImageListTest.txt"))
+                {
+                    file.WriteLine(line);
+                }
                 result.Add(line);
             }
             
@@ -52,14 +54,16 @@ namespace DockerGUI.Service
             processInfo.UseShellExecute = false;
             process = Process.Start(processInfo);
 
-             while (!process.StandardOutput.EndOfStream)
-             {
+            while (!process.StandardOutput.EndOfStream)
+            {
                 // Testing for successful retrival of the container list
-                using StreamWriter file = new StreamWriter("C:\\Test\\ContainerListTest.txt");
                 var line = process.StandardOutput.ReadLine();
-	            file.WriteLine(line);
+                using (StreamWriter file = new StreamWriter($@"C:\Test\ContainerListTest.txt"))
+                {
+                    file.WriteLine(line);
+                }
                 result.Add(line);
-             }
+            }
 
             //the line below locks the original form window until the powershell window is closed
             process.WaitForExit();

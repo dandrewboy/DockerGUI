@@ -14,10 +14,9 @@ namespace DockerGUI
     public partial class ImageManager : Form
     {
         PowerShellService pss = new PowerShellService();
-        public ImageManager(string imgName, string imgPort, string imgPassword, string ide)
+        public ImageManager()
         {
             InitializeComponent();
-            dgv_ImageList.Rows.Add(imgName, ide, imgPort, imgPassword);
         }
 
         private void b_cmMainPage_Click(object sender, EventArgs e)
@@ -34,11 +33,7 @@ namespace DockerGUI
 
         private void b_DeleteContainer_Click(object sender, EventArgs e)
         {
-            if (this.dgv_ImageList.SelectedRows.Count > 0)
-            {
-                dgv_ImageList.Rows.RemoveAt(this.dgv_ImageList.SelectedRows[0].Index);
-                //pss.removeImage((string)dgv_ImageList.SelectedRows[0].Cells[0].Value);
-            }
+            
         }
     }
 }

@@ -88,6 +88,7 @@ namespace DockerGUI.Service
             process = Process.Start(processInfo);
 
             //the line below locks the original form window until the powershell window is closed
+            process.WaitForExit();
             process.Close();
         }
 
@@ -104,6 +105,7 @@ namespace DockerGUI.Service
             process = Process.Start(processInfo);
 
             //the line below locks the original form window until the powershell window is closed
+            process.WaitForExit();
             process.Close();
 
         }

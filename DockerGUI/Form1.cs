@@ -135,7 +135,7 @@ namespace DockerGUI
                             //the line below locks the original form window until the powershell window is closed
                             process.WaitForExit();
                             process.Close();
-                            dataGridView1.Rows.Add(ide + "_" + fileName, ide, fileName, projectLanguage);
+                            dataGridView1.Rows.Add(ide +"_"+ fileName, ide, fileName, projectLanguage);
                         } 
                         else if(isJava == true)
                         {

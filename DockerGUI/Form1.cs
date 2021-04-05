@@ -225,8 +225,8 @@ namespace DockerGUI
         {
             if (this.dataGridView1.SelectedRows.Count > 0)
             {
-                dataGridView1.Rows.RemoveAt(this.dataGridView1.SelectedRows[0].Index);
                 pss.removeContainer((string)dataGridView1.SelectedRows[0].Cells[0].Value);
+                dataGridView1.Rows.RemoveAt(this.dataGridView1.SelectedRows[0].Index);
             }
         }
     }

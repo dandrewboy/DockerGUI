@@ -36,8 +36,8 @@ namespace DockerGUI
         {
             if (this.dgv_ImageList.SelectedRows.Count > 0)
             {
-                dgv_ImageList.Rows.RemoveAt(this.dgv_ImageList.SelectedRows[0].Index);
                 pss.removeContainer((string)dgv_ImageList.SelectedRows[0].Cells[0].Value);
+                dgv_ImageList.Rows.RemoveAt(this.dgv_ImageList.SelectedRows[0].Index);
             }
         }
     }

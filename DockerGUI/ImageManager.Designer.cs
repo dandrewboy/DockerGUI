@@ -146,7 +146,7 @@
             this.Controls.Add(this.b_DeleteContainer);
             this.Controls.Add(this.dgv_ImageList);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "ImageManager";
+            this.Name.Name = "ImageManager";
             this.Text = "Image Manager";
             this.Load += new System.EventHandler(this.ImageManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ImageList)).EndInit();

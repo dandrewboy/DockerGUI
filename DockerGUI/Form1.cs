@@ -24,7 +24,7 @@ namespace DockerGUI
         // Click event for the Container Manager navigation button
         private void b_ContainerManager_Click(object sender, EventArgs e)
         {
-            ImageManager iManager = new ImageManager();
+            ImageManager iManager = new ImageManager(imgName, ide, imgPort, imgPassword);
             iManager.Show();
             Hide();
         }

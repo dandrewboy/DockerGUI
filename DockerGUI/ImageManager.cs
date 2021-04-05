@@ -17,7 +17,7 @@ namespace DockerGUI
         public ImageManager(string imgName, string imgPort, string imgPassword, string ide)
         {
             InitializeComponent();
-            dgv_ImageList.Rows.Add(imgName, ide, imgPort, imgPassword);
+            dgv_ImageList.Rows.Add(""+imgName+"", ""+ide+"", ""+imgPort+"", ""+imgPassword+"");
         }
 
         private void b_cmMainPage_Click(object sender, EventArgs e)

@@ -119,7 +119,7 @@ namespace DockerGUI
                             // Create an empty process 
                             Process process;
                             // Set the process to be a single instance of Powershell with a Docker command
-                            ProcessStartInfo processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"docker run -it --rm -p 8081:8080 -e PASSWORD=test -v " + fbd.SelectedPath + " --name vscode_"+ fileName +" codercom/code-server");
+                            ProcessStartInfo processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"docker run -it --rm -p 8081:8080 -e PASSWORD=test -v " + fbd.SelectedPath + ":/home/coder/project --name vscode_" + fileName +" codercom/code-server");
 
                             // set image global variables
                             imgName = "codercom/code-server";
@@ -143,7 +143,7 @@ namespace DockerGUI
                             // Create an empty process 
                             Process process;
                             // Set the process to be a single instance of Powershell with a Docker command
-                            ProcessStartInfo processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"docker run -it --rm -p 8081:8080 -e PASSWORD=test -v " + fbd.SelectedPath + " --name vscode_" + fileName + " codercom/code-server");
+                            ProcessStartInfo processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"docker run -it --rm -p 8081:8080 -e PASSWORD=test -v " + fbd.SelectedPath + ":/home/coder/project --name vscode_" + fileName + " codercom/code-server");
 
                             // set image global variables
                             imgName = "codercom/code-server";

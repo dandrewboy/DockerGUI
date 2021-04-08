@@ -133,7 +133,7 @@ namespace DockerGUI
                             process = Process.Start(processInfo);
 
                             //the line below locks the original form window until the powershell window is closed
-                            process.WaitForExit();
+                            //process.WaitForExit();
                             process.Close();
                             dataGridView1.Rows.Add(ide +"_"+ fileName, ide, fileName, projectLanguage);
                         } 
@@ -157,7 +157,7 @@ namespace DockerGUI
                             process = Process.Start(processInfo);
 
                             //the line below locks the original form window until the powershell window is closed
-                            process.WaitForExit();
+                            //process.WaitForExit();
                             process.Close();
                             dataGridView1.Rows.Add(ide + "_" + fileName, ide, fileName, projectLanguage);
                         }
@@ -181,7 +181,7 @@ namespace DockerGUI
                             process = Process.Start(processInfo);
 
                             //the line below locks the original form window until the powershell window is closed
-                            process.WaitForExit();
+                            //process.WaitForExit();
                             process.Close();
                             dataGridView1.Rows.Add(ide + "_" + fileName, ide, fileName, projectLanguage);
                         }

@@ -15,7 +15,7 @@ namespace DockerGUI.Service
             // Create an empty process 
             Process process;
             // Set the process to be a single instance of Powershell with a docker remove command for an image
-            ProcessStartInfo processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"docker image rmi " + imgName);
+            ProcessStartInfo processInfo = new ProcessStartInfo($@"C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe", $@"docker rmi " + imgName);
 
             // Parameters for the process instance, CreateNoWindow is commented out for testing purposes
             //processInfo.CreateNoWindow = true;
